@@ -11,6 +11,13 @@ public class trueCaller {
 		mobiledata db = new mobiledata();
 		long phoneNumber[] = db.getAllPhoneNumber();
 		boolean isNumberAvailable = db.verofyPhoneNumber(number);
+			
+		for(int i = 0 ; i < phoneNumber.length ; i++)
+		{
+//			System.out.println((i+1) + " " + arr[i]);
+		}
+		
+		
 		System.out.println(isNumberAvailable);
 	}
 
