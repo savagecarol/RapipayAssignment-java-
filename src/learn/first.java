@@ -15,7 +15,7 @@ public class first {
 	}
 	public static void main(String args[])
 	{
-		System.out.println("main");
+		System.out.println(p);
 		first f = new first();// static > main > init > constructor
 		//(init working because of the creation of the object )
 
