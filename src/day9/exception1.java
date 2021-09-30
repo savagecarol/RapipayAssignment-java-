@@ -6,16 +6,14 @@ class p
 	{
 		try
 			{
-			System.out.println("aa");
 				 a = 50/0;
 			}
-		catch(ArrayIndeaxOutOfBoundsException e)
+
+		catch(Exception e)
 		{
 			System.out.println(e);
-			System.out.println("dsdf");
-			
 		}
-		System.out.println("aa");
+		
 		
 		return 1;
 	}
