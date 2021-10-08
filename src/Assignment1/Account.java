@@ -1,6 +1,9 @@
 package Assignment1;
 
-public class Account {
+import java.util.*;
+
+public class Account  implements Comparable<Account>
+{
 	String accountNumber;
 	String userName;
 	String password;
@@ -38,4 +41,22 @@ public class Account {
 			return balance;
 		}
 		
+		public int compareTo(Account a)
+	    {
+	        return this.balance - a.balance; 
+	    }
+
 }
+
+
+class CityCompare implements Comparator<Account>
+{
+    public int compare(Account a1, Account a2)
+    {
+    	return a1.contactDetails.cityName.compareTo(a2.contactDetails.cityName);
+    }
+}
+ 
+
+
+

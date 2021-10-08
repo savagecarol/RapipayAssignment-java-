@@ -2,13 +2,14 @@ package Assignment1;
 
 import java.util.*;
 
-public class Authentication {
+public class Authentication 
+{
 	
+	public static ArrayList<Account> accounts = new ArrayList<Account>();
+	public static TreeSet<Account> accountsT = new TreeSet<Account>();
 	public static void main(String args[])
 		{
-				
-			ArrayList<Account> accounts = new ArrayList<Account>();
-		
+			
 				Scanner sc = new Scanner(System.in);
 				while(true)
 				{
@@ -36,18 +37,18 @@ public class Authentication {
 								
 							break;
 								
-						case 2 : accounts.add(Application.submitUserDetails()); break;
+						case 2 :
+								Account a = Application.submitUserDetails();
+								accounts.add(a); 
+								accountsT.add(a);
+								break;
 						case 3 : System.exit(0);	
 						default : System.exit(0);
 
 					}
 			}
-	
-	
 		
 		}
-	
-	
 	
 	
 	static boolean checkAccount(ArrayList<Account> accounts , String userName ,  String password)

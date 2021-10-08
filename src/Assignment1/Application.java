@@ -1,5 +1,6 @@
 package Assignment1;
 
+import java.io.*;
 import java.util.*;
 
 public class Application {
@@ -130,6 +131,75 @@ public class Application {
         }
         return sb.toString();
     }
+	
+	
+	public static void printAllAccount(ArrayList<Account> acc)
+	{
+		acc.forEach((i) -> printUserAllDetails(i));	
+	}
+	
+	public static void printAllAccountOfTreeSet(TreeSet<Account> acc)
+	{
+		acc.forEach((i) -> printUserAllDetails(i));	
+	}
+	
+	public static void treeSetDefaultSort(TreeSet<Account> accountsT)
+	{
+		printAllAccountOfTreeSet(accountsT);
+	}
+	
+	public static void sortByCitynameTreeSet(TreeSet<Account> accountsT)
+	{
+		 TreeSet<Account> ts = new TreeSet<Account>(new  CityCompare ());
+		 accountsT.forEach((i) ->  ts.add(i));
+		 printAllAccountOfTreeSet(ts);
+	}
+	
+	
+	public static void printAllAccountInrange(ArrayList<Account> account , int range1 ,int range2)
+	{
+		
+		for(Account a : account)
+		{
+			if(a.balance > range1 && a.balance < range2)
+			{
+				 printUserAllDetails(a);
+			}
+		}
+	}
+	
+	public static void printCityNameInFolder(ArrayList<Account> account , String cityName) 
+	{
+		String BASE_PATH = "C:\\Users\\dell\\Documents\\workspace-spring-tool-suite-4-4.10.0.RELEASE\\corejava-salary\\src\\Assignment1\\";
+		
+		 try {
+		      File myObj = new File(BASE_PATH + cityName + ".txt");
+		      if (myObj.createNewFile()) {
+		        System.out.println("File created: " + myObj.getName());
+		      } else {
+		        System.out.println("File already exists.");
+		      }
+		  	
+				for(Account a : account)
+					{
+						if(a.contactDetails.cityName.equals(cityName))
+						{
+						    
+					BufferedWriter out = new BufferedWriter(new FileWriter(BASE_PATH +cityName + ".txt", true));
+					out.write(a.accountNumber + " " + a.userName);
+					out.close();
+							
+						}	
+					}
+		 }
+		     catch (IOException e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+		    }
+	
+		
+	}
+	
 
 	
 }

@@ -1,18 +1,19 @@
 package mob;
+
 import java.util.*;
 
 // model 
 
-public class Device
-{
+public class Device {
 
 	private String deviceName;
 	private String modelNumber;
 	private String cost;
 	private String avgRating;
 	private String brandName;
-	
-	public Device(String deviceName, String cost, String avgRating,String brandName)  // no return type // class name // defualt values
+
+	public Device(String deviceName, String cost, String avgRating, String brandName) // no return type // class name //
+																						// defualt values
 	{
 		this.deviceName = deviceName;
 		this.modelNumber = getAlphaNumericString();
@@ -20,20 +21,18 @@ public class Device
 		this.avgRating = avgRating;
 		this.brandName = brandName;
 	}
-	
-	static String getAlphaNumericString()
-    {
+
+	static String getAlphaNumericString() {
 		int n = 6;
-        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        
-        StringBuilder sb = new StringBuilder(n);
-        for (int i = 0; i < n; i++) 
-        {
-            int index= (int)(AlphaNumericString.length() * Math.random());
-            sb.append(AlphaNumericString.charAt(index));
-        }
-        return sb.toString();
-    }
+		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+		StringBuilder sb = new StringBuilder(n);
+		for (int i = 0; i < n; i++) {
+			int index = (int) (AlphaNumericString.length() * Math.random());
+			sb.append(AlphaNumericString.charAt(index));
+		}
+		return sb.toString();
+	}
 
 	public String getDeviceName() {
 		return deviceName;
@@ -75,6 +74,30 @@ public class Device
 		this.brandName = brandName;
 	}
 
-	
-}
+	@Override
+	public int hashCode() {
+		int n = 5;
+		String AlphaNumericString = "123456789";
+		StringBuilder sb = new StringBuilder(n);
+		for (int i = 0; i < n; i++) {
+			int index = (int) (AlphaNumericString.length() * Math.random());
+			sb.append(AlphaNumericString.charAt(index));
+		}
+		return Integer.parseInt(sb.toString());
 
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof Device) {
+			Device d = (Device) o;
+			if (this.deviceName.equals(d.getDeviceName()) && this.modelNumber.equals(d.getModelNumber())
+					&& this.cost.equals(d.getCost()) && this.avgRating.equals(d.getAvgRating())
+					&& this.brandName.equals(d.getBrandName())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+}
